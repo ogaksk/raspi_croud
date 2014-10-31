@@ -39,6 +39,10 @@ server = http.createServer(app);
 var socketio = require('socket.io');
 var io = socketio.listen(server);
 
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
 
 server.listen(app.get('port'), function(){
   console.log("server listening on port " + app.get('port'));
