@@ -6,7 +6,6 @@ head
   script(type="text/javascript")
 
     var socket = io.connect();
-
     function submit(){
       var message = "bang!";
       socket.emit("msg", {message : message});
@@ -16,6 +15,7 @@ head
 
 body
   div(class="wrapper")
+
     div(class="output")
     div(class="wrapper-inner")
       script(type="text/javascript")
@@ -74,7 +74,7 @@ body
       div(class="text")
         div(class="title-logo")
         p ※ Ustreamの通信状況により遅延が生じる場合がございます。 
-          h1 Piston Machine で風送るウェブサイト
+          h1= portNum
         p 画面に向かって息を吹きかけると風車が回ります。
         p ※ 対応ブラウザ：Google Chrome(ver.26以上)のみ。 
         p もしブラウザ対象外の場合はこちらのボタンをお使いください… 

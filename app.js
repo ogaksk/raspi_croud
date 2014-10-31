@@ -34,6 +34,7 @@ app.get('/users', user.list);
 //   console.log('Express server listening on port ' + app.get('port'));
 // });
 
+console.log(app.settings.port)
 
 server = http.createServer(app);
 var socketio = require('socket.io');
@@ -54,7 +55,6 @@ io.sockets.on('connection', function (socket) {
   console.log("connected from " + address.address + ":" + address.port);
 
   socket.on('msg', function(data){
-    console.log(data);
     // ここがメッセージ？
     var message = data.message;
     io.sockets.emit("msg", {message : message});
