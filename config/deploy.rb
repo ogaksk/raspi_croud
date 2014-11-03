@@ -32,7 +32,7 @@ set :node_env, 'production'
 #set :node_port, 443
 #set :node_port, 8888
 set :user, "deployer"
-set :group, "deployer"
+set :group, "wheel"
 
 #current_app_path = "#{current_path}/server"
 #ここで起動スクリプトをかく。
