@@ -8,7 +8,7 @@ head
     var socket = io.connect();
     function submit(){
       var message = "bang!";
-      socket.emit("msg", {message : message});
+      socket.emit("for_croud", {message : message});
       console.log("ふいてる");
     }
 
