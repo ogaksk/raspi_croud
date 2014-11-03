@@ -31,8 +31,8 @@ set :copy_compression, :zip
 set :node_env, 'production'
 #set :node_port, 443
 #set :node_port, 8888
-set :user, "deployer"
-set :group, "wheel"
+set :user, 'deployer'
+set :group, 'deployer'
 
 #current_app_path = "#{current_path}/server"
 #ここで起動スクリプトをかく。
