@@ -1,14 +1,14 @@
 #まだ完璧じゃない
 
-set :application, "piston"
+set :application, "monougokasu"
 set :scm, :git 
-set :repository, "git@github.com:ogawakeisuke/chat_test.git"
+set :repository, "git@github.com:ogaksk/raspi_croud.git"
 # set :repository,  "#{Dir::pwd}/.git"
 # set :local_repository, "#{Dir::pwd}/.git"
 
 set :branch, "master"
-role :web, "54.249.233.250"                          # Your HTTP server, Apache/etc
-role :app, "54.249.233.250"                          # This may be the same as your `Web` server
+role :web, "153.121.73.90"                          # Your HTTP server, Apache/etc
+role :app, "153.121.73.90"                          # This may be the same as your `Web` server
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
@@ -24,19 +24,19 @@ role :app, "54.249.233.250"                          # This may be the same as y
 # end
 
 set :use_sudo, false
-set :deploy_to, "/home/piston/#{application}"
+set :deploy_to, "/home/#{application}"
 set :deploy_via, :copy
 # set :copy_strategy, :export
 set :copy_compression, :zip
 set :node_env, 'production'
 #set :node_port, 443
 #set :node_port, 8888
-set :user, "piston"
-set :group, "piston"
-
+set :user, "deployer"
+set :group, "deployer"
 
 #current_app_path = "#{current_path}/server"
 #ここで起動スクリプトをかく。
+
 namespace :deploy do
   task :start, :roles => :app do
     run "cd #{current_path} && NODE_ENV=#{node_env} forever start app.js"
