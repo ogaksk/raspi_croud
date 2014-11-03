@@ -18,18 +18,6 @@ body
 
     div(class="output")
     div(class="wrapper-inner")
-      script(type="text/javascript")
-        console.log("start");
-        var video = document.getElementById('myVideo');
-        navigator.getMedia = ( navigator.getUserMedia ||
-                                navigator.webkitGetUserMedia ||
-                                navigator.mozGetUserMedia ||
-                                navigator.msGetUserMedia );
-
-
-        if (navigator.getMedia){
-          navigator.getMedia({audio:true, video:false}, success, error);
-        }
 
       div(class="iframe")
       div(class="text")
