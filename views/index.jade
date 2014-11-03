@@ -21,13 +21,16 @@ body
       div(class="iframe")
       div(class="text")
         div(class="title-logo")
-          button(id="button", style="font-size: large;color:teal") モノを動かすボタン！
+          img(id="button", src="images/smartapp.png")
       div(class="text")
         
 
       script(type="text/javascript")
         // debug用
         $("#button").bind("click", function() {
+          $("#button").animate({ "opacity": 0 }, 0, function(){
+            $(this).animate({ "opacity":　1 }, 100);
+          });
           submit();
         });
         
