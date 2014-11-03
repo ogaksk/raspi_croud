@@ -34,11 +34,11 @@ app.get('/users', user.list);
 //   console.log('Express server listening on port ' + app.get('port'));
 // });
 
-console.log(app.settings.port)
-
 server = http.createServer(app);
 var socketio = require('socket.io');
 var io = socketio.listen(server);
+
+console.log("-------スターート---------")
 
 io.configure(function () { 
   io.set("transports", ["xhr-polling"]); 
