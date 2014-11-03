@@ -38,7 +38,6 @@ server = http.createServer(app);
 var socketio = require('socket.io');
 var io = socketio.listen(server);
 
-console.log("-------スターート---------")
 
 io.configure(function () { 
   io.set("transports", ["xhr-polling"]); 
@@ -56,7 +55,6 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('for_croud', function(data) {
     // remote側にプッシュしたい
-    console.log("ふいてるのがサーバーに来た")
     socket.broadcast.emit('remote_message', data);
   });
 
