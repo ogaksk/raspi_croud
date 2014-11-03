@@ -45,15 +45,15 @@ set :node_env, 'production'
 
 namespace :deploy do
   task :start, :roles => :app do
-    run "cd #{current_path} && NODE_ENV=#{node_env} forever start app.js"
+    run "cd #{current_path} && NODE_ENV=#{node_env} node_modules/forever/bin/forever start app.js"
   end
   
   task :stop, :roles => :app do
-    run "cd #{current_path} && forever stop app.js"
+    run "cd #{current_path} && node_modules/forever/bin/forever stop app.js"
   end
 
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "cd #{current_path} && NODE_ENV=#{node_env} forever restart app.js"
+    run "cd #{current_path} && NODE_ENV=#{node_env} node_modules/forever/bin/forever restart app.js"
   end
   
   task :npm_install, :roles => :app, :except => { :no_release => true } do
