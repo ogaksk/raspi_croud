@@ -1,7 +1,6 @@
 #まだ完璧じゃない
 
 set :application, "monougokasu"
-set :scm, :git 
 set :repository, "git@github.com:ogaksk/raspi_croud.git"
 # set :repository,  "#{Dir::pwd}/.git"
 # set :local_repository, "#{Dir::pwd}/.git"
@@ -23,16 +22,23 @@ role :app, "153.121.73.90"                          # This may be the same as yo
 #   end
 # end
 
+set :user, 'deployer'
+set :group, 'deployer'
+
 set :use_sudo, false
-set :deploy_to, "/home/#{application}"
-set :deploy_via, :copy
-# set :copy_strategy, :export
-set :copy_compression, :zip
+set :deploy_to, "/home/#{user}/apps/#{application}"
+set :scm, :git
+set :scm_verbose, true
+set :deploy_via, :remote_cache
+set :git_shallow_clone, 1
+
+default_run_options[:pty] = true
+ssh_options[:forward_agent] = true
+
 set :node_env, 'production'
 #set :node_port, 443
 #set :node_port, 8888
-set :user, 'deployer'
-set :group, 'deployer'
+
 
 #current_app_path = "#{current_path}/server"
 #ここで起動スクリプトをかく。

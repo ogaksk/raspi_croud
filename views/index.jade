@@ -31,46 +31,7 @@ body
           navigator.getMedia({audio:true, video:false}, success, error);
         }
 
-        function success(stream) {
-  
-          var context = new webkitAudioContext();
-          var source = context.createMediaStreamSource(stream);
-          var audioAnalyser = context.createAnalyser();
-          var audioAnalyzedData = new Uint8Array(audioAnalyser.frequencyBinCount);
-          var stateblowing = false;
-
-          source.connect(audioAnalyser);
-          //source.connect(context.destination);
-
-          data = audioAnalyser.getByteFrequencyData(audioAnalyzedData);
-          console.log(audioAnalyzedData[360]);
-
-          setInterval(function(){
-            audioAnalyser.getByteFrequencyData(audioAnalyzedData);
-            // console.log(audioAnalyzedData[360]);
-            if ((audioAnalyzedData[360] > 48) && stateblowing == true){
-              $("#output").text("ふいた");
-              submit();
-              stateblowing = false;
-            } else {
-              $("#output").text("");
-            };
-            //　次にここまで音量が下がったらフラッグを戻すという設定
-            if (audioAnalyzedData[360] < 22){
-              stateblowing = true;
-            };
-          }, 20);
-      
-        // video.src = window.webkitURL.createObjectURL(stream);  
-        }
-        
-        function error(err) {
-          console.log(err);
-        }
-
       div(class="iframe")
-        <!--<iframe width="608" height="368" src="http://www.youtube.com/embed/Gz-naR6c9pA" frameborder="0" allowfullscreen></iframe>-->
-        <iframe src="http://www.ustream.tv/embed/13973387" width="608" height="368" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe>
       div(class="text")
         div(class="title-logo")
         p ※ Ustreamの通信状況により遅延が生じる場合がございます。 

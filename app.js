@@ -54,11 +54,7 @@ io.sockets.on('connection', function (socket) {
   var address = socket.handshake.address;
   console.log("connected from " + address.address + ":" + address.port);
 
-  socket.on('msg', function(data){
-    // ここがメッセージ？
-    var message = data.message;
-    io.sockets.emit("msg", {message : message});
-    
+  socket.on('for_croud', function(data) {
     // remote側にプッシュしたい
     socket.broadcast.emit('remote_message', data);
   });
