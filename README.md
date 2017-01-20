@@ -2,7 +2,7 @@
 ウェブサイトから扇風機を回すためのシステムプロトタイプ
 
 ## Description  
-特定のウェブサイト(<http://monougokasu.ogaksk.org>)からトリガーをwebsocketにてリアルタイム受信し、RaspberryPIで受信する。  
+特定のウェブサイト(<ttp://monougokasu.ogaksk.org>)からトリガーをwebsocketにてリアルタイム受信し、RaspberryPIで受信する。  
 Node.jsで実装
 
 ## Demo  
@@ -15,4 +15,4 @@ Node.jsで実装
 
 2. raspberryPIがbindするページにブラウザでアクセス。socket.IOがリモートサーバーとコネクションされる。
 
-3. リモートサーバーの提供するウェブサイト(<http://monougokasu.ogaksk.org>)にアクセス。
+3. リモートサーバーの提供するウェブサイト(<ttp://monougokasu.ogaksk.org>)にアクセス。
